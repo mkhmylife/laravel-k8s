@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+data:
+  APP_DEBUG: "false"
+  APP_ENV: production
+  APP_KEY: changeme
+  APP_LOG_LEVEL: debug
+  APP_NAME: "Laravel K8s"
+  APP_URL: https://www.laravel.com
+  BROADCAST_DRIVER: pusher
+  CACHE_DRIVER: redis
+  QUEUE_DRIVER: redis
+  SESSION_DRIVER: redis
+  DB_CONNECTION: mysql
+  DB_DATABASE: backend
+  DB_HOST: changeme
+  DB_PASSWORD: beta1234
+  DB_PORT: "3306"
+  DB_USERNAME: beta
+  REDIS_HOST: redis
+  REDIS_PORT: "6379"

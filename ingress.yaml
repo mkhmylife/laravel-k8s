@@ -1,0 +1,42 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: 100m
+  labels:
+    app: backend
+  name: backend
+spec:
+  rules:
+    - host: yourdomain.com
+      http:
+        paths:
+          - backend:
+              serviceName: backend
+              servicePort: 80
+            path: /
+  # tls:
+  #   - hosts:
+  #       - yourdomain.com
+  #     secretName: yourdomain-com-tls
+# ---
+# apiVersion: certmanager.k8s.io/v1alpha1
+# kind: Certificate
+# metadata:
+#   name: yourdomain.com
+# spec:
+#   acme:
+#     config:
+#       - dns01:
+#           provider: cf-dns
+#         domains:
+#           - yourdomain.com
+#   commonName: yourdomain.com
+#   dnsNames:
+#     - yourdomain.com
+#   issuerRef:
+#     kind: ClusterIssuer
+#     name: letsencrypt
+#   secretName: yourdomain-com-tls

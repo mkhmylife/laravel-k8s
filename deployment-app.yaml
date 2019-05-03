@@ -42,7 +42,7 @@ spec:
           envFrom:
             - configMapRef:
                 name: backend-config
-          image: 437184461664.dkr.ecr.ap-southeast-1.amazonaws.com/hyperair-backend:latest
+          image: changeme
           imagePullPolicy: Always
           name: artisan
           volumeMounts:

@@ -1,6 +1,7 @@
 ARG PHP_EXTENSIONS="apcu bcmath opcache pcntl pdo_mysql redis zip sockets imagick gd exif"
 FROM thecodingmachine/php:7.3-v2-slim-apache as php_base
-ENV TEMPLATE_PHP_INI=production
+ENV TEMPLATE_PHP_INI=production \
+    APACHE_DOCUMENT_ROOT=/var/www/html/public
 COPY --chown=docker:docker . /var/www/html
 RUN composer install --quiet --optimize-autoloader --no-dev
 
